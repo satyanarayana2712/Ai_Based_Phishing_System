@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "PhishShield AI - URL Risk Analyzer",
+  "version": "1.0.0",
+  "description": "Real-time AI & ML Phishing Website Detection and URL Risk Analyzer powered by FastAPI & Machine Learning.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Check URL Risk Level"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

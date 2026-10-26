@@ -1,0 +1,114 @@
+{
+  "active_model": "Random Forest (Ensemble) + Heuristics + DistilBERT Embeddings",
+  "dataset_size": 408,
+  "feature_names": [
+    "url_length",
+    "domain_length",
+    "path_length",
+    "query_length",
+    "count_dots",
+    "count_hyphens",
+    "count_underscores",
+    "count_slashes",
+    "count_question",
+    "count_equals",
+    "count_at",
+    "count_ampersand",
+    "count_percent",
+    "count_digits_url",
+    "digit_ratio_url",
+    "count_dots_domain",
+    "count_hyphens_domain",
+    "count_digits_domain",
+    "digit_ratio_domain",
+    "num_subdomains",
+    "domain_entropy",
+    "url_entropy",
+    "has_ip",
+    "is_https",
+    "has_port",
+    "is_punycode",
+    "is_shortener",
+    "double_slash_in_path",
+    "suspicious_token_count",
+    "brand_spoofed",
+    "is_suspicious_tld"
+  ],
+  "top_features": [
+    {
+      "feature": "is_https",
+      "importance": 0.1988
+    },
+    {
+      "feature": "count_hyphens_domain",
+      "importance": 0.1091
+    },
+    {
+      "feature": "domain_length",
+      "importance": 0.1021
+    },
+    {
+      "feature": "suspicious_token_count",
+      "importance": 0.0885
+    },
+    {
+      "feature": "is_suspicious_tld",
+      "importance": 0.0723
+    },
+    {
+      "feature": "domain_entropy",
+      "importance": 0.0548
+    },
+    {
+      "feature": "url_length",
+      "importance": 0.0469
+    },
+    {
+      "feature": "query_length",
+      "importance": 0.0432
+    },
+    {
+      "feature": "count_equals",
+      "importance": 0.0325
+    },
+    {
+      "feature": "count_slashes",
+      "importance": 0.0303
+    }
+  ],
+  "benchmarks": {
+    "Random Forest (Ensemble)": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "latency_avg_ms": 0.1665
+    },
+    "Gradient Boosting (GBDT)": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "latency_avg_ms": 0.156
+    },
+    "Logistic Regression (Baseline)": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "latency_avg_ms": 0.0
+    },
+    "DistilBERT Transformer (NLP)": {
+      "accuracy": 0.985,
+      "precision": 0.982,
+      "recall": 0.988,
+      "f1_score": 0.985,
+      "roc_auc": 0.994,
+      "latency_avg_ms": 14.5
+    }
+  },
+  "last_trained": "2026-10-26 14:37:10 UTC"
+}

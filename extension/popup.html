@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishShield AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="shield-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" stroke-dasharray="24"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="title">PhishShield AI</h1>
+          <span class="subtitle">Neural URL Risk Guardian</span>
+        </div>
+      </div>
+      <div class="status-indicator online" id="apiStatusDot" title="AI Backend Connected"></div>
+    </header>
+
+    <!-- Current URL Display -->
+    <div class="url-card">
+      <div class="url-label">CURRENT TARGET URL</div>
+      <div class="url-text" id="targetUrl">Loading active tab...</div>
+    </div>
+
+    <!-- Scan Action -->
+    <div class="scan-action-wrap">
+      <button id="scanBtn" class="primary-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+        <span>Analyze Risk Level</span>
+      </button>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="loading-state hidden">
+      <div class="spinner"></div>
+      <p class="loading-text">Analyzing entropy, lexical features & NLP patterns...</p>
+    </div>
+
+    <!-- Result Card -->
+    <div id="resultCard" class="result-card hidden">
+      <!-- Risk Header -->
+      <div class="risk-header">
+        <div class="score-display">
+          <div class="score-circle" id="scoreCircle">
+            <span class="score-value" id="riskScore">0</span>
+            <span class="score-unit">/100</span>
+          </div>
+        </div>
+        <div class="risk-meta">
+          <span class="risk-badge" id="riskBadge">SAFE</span>
+          <div class="confidence" id="confidenceText">Confidence: 98%</div>
+        </div>
+      </div>
+
+      <!-- Verdict Summary -->
+      <p class="summary-text" id="summaryText"></p>
+
+      <!-- Threat Indicators -->
+      <div id="indicatorsSection" class="indicators-section hidden">
+        <div class="section-title">THREAT INDICATORS FOUND</div>
+        <ul id="indicatorsList" class="indicators-list"></ul>
+      </div>
+
+      <!-- Key Heuristics Metrics -->
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <span class="m-label">Domain Entropy</span>
+          <span class="m-val" id="entropyVal">--</span>
+        </div>
+        <div class="metric-box">
+          <span class="m-label">Host Protocol</span>
+          <span class="m-val" id="protocolVal">--</span>
+        </div>
+        <div class="metric-box">
+          <span class="m-label">Direct IP</span>
+          <span class="m-val" id="ipVal">--</span>
+        </div>
+        <div class="metric-box">
+          <span class="m-label">Inference Time</span>
+          <span class="m-val" id="latencyVal">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="errorState" class="error-state hidden">
+      <div class="error-icon">⚠️</div>
+      <p id="errorMsg">Could not connect to AI Engine at http://localhost:8000. Ensure the FastAPI backend is running.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="model-tag">Model: RF Ensemble + DistilBERT</div>
+      <a href="http://localhost:5173" target="_blank" class="dashboard-link">Open Full Web Dashboard &rarr;</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
